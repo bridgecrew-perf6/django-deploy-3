@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="product">
+    {% load static %}
+    <div class="banner">
+        <h1> {{ product_s.title }} </h1>
+    </div>
+    <div class="product-p">
+        <aside class="side">
+            <ul>
+                {% for product in products.all %}
+                <li><a href="{% url 'product' product.id %}" class="links">{{ product.title }}</a></li>
+                <hr/>
+                {% endfor %}
+            </ul>
+        </aside>
+        <div class="side-2">
+            <div class="banner-img">
+                <img src="{{product_s.main_img.url}}" alt="{{product_s.alt_text}}">
+            </div>
+            <div class="text">
+               <p>
+                {{ product_s.text | safe}}
+               </p>
+            </div>
+            <div class="images">
+                {% if product_s.img_1 %}
+                <div class="img-1">
+                    <img src="{{ product_s.img_1.url }}" alt="{{product_s.alt_text}}">
+                </div>
+                {% endif %}
+                {% if product_s.img_2 %}
+                <div class="img-1">
+                    <img src="{{ product_s.img_2.url }}" alt="{{product_s.alt_text}}">
+                </div>
+                {% endif %}
+                {% if product_s.img_3 %}
+                <div class="img-1">
+                    <img src="{{ product_s.img_3.url }}" alt="{{product_s.alt_text}}">
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

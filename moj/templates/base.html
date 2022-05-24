@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'node_modules/swiper/swiper-bundle.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <title>Document</title>
+    <meta name="description" content="Galata Tente olarak bir çok Tente, Çadır ve Branda modelleri üretiyor ve siz müşterilerimizin ihtiyaçlarına çözüm üretiyoruz. Sizde Galata Tente ile hemen iletişime geçin.">
+    <meta name="keywords" content="tente,çadır,branda">
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Galata Tente Sistemleri">
+    <meta property="og:description" content="Galata Tente olarak bir çok Tente, Çadır ve Branda modelleri üretiyor ve siz müşterilerimizin ihtiyaçlarına çözüm üretiyoruz. Sizde Galata Tente ile hemen iletişime geçin.">
+    <meta property="og:url" content="https://galatatente.com/">
+    <meta property="og:site_name" content="Galata Tente">
+</head>
+<body>
+     <div >
+        <video class="background" autoplay loop muted>
+            <source src="{% static 'video.mp4' %}" >
+        </video>
+    </div> 
+    <header class="header">
+        <nav class="nav">
+            <ul>
+                <a href="{% url 'home' %}"><li class="active"><i class="fa-solid fa-house"></i></li></a>
+                <li><a href="{% url 'products' %}">ÜRÜNLER</a>
+                    <div class="sub-menu-1">
+                        <ul>
+                            {% for product in products.all %}
+                                <li><a href="{% url 'product' product.id %}">{{ product.title }}</a></li>
+                            {% endfor %}
+                            <!-- <li><a href="#">Kasetli Tente</a></li>
+                            <li><a href="#">Wintent Tente</a></li>
+                            <li><a href="#">Körüklü Tente</a></li>
+                            <li><a href="#">Işıglı pergule Tente</a></li>
+                            <li><a href="#">mafsalı Tente</a></li>
+                            <li><a href="#">Sabit Tente</a></li>
+                            <li><a href="#">Yarasa Tente</a></li>
+                            <li><a href="#">Depo Çadır</a></li>
+                            <li><a href="#">hanger Çadır</a></li>
+                            <li><a href="#">Yemekhane Çadır</a></li>
+                            <li><a href="#">Demonte Çadır</a></li> -->
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="{% url 'hakkimizda' %}">HAKKIMIZDA</a></li>
+                <li><a href="{% url 'gallery' %}">Gallery</a></li>
+                <li><a href="{% url 'iletisim' %}"> İLETİŞİM</a></li>
+            </ul>
+        </nav>
+        <nav class="nav-mobil">
+            <div class="icon" id="icon">
+                <?xml version="1.0"?>
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="50" height="50" x="0" y="0" viewBox="0 0 24 24" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path xmlns="http://www.w3.org/2000/svg" d="M8,7H22.5a1.5,1.5,0,0,0,0-3H8A1.5,1.5,0,0,0,8,7Z" fill="#ffffff" data-original="#000000"/><path xmlns="http://www.w3.org/2000/svg" d="M22.5,11H8a1.5,1.5,0,0,0,0,3H22.5a1.5,1.5,0,0,0,0-3Z" fill="#ffffff" data-original="#000000"/><path xmlns="http://www.w3.org/2000/svg" d="M22.5,18H8a1.5,1.5,0,0,0,0,3H22.5a1.5,1.5,0,0,0,0-3Z" fill="#ffffff" data-original="#000000"/><circle xmlns="http://www.w3.org/2000/svg" cx="2.5" cy="5.5" r="2.5" fill="#ffffff" data-original="#000000"/><circle xmlns="http://www.w3.org/2000/svg" cx="2.5" cy="12" r="2.5" fill="#ffffff" data-original="#000000"/><circle xmlns="http://www.w3.org/2000/svg" cx="2.5" cy="19" r="2.5" fill="#ffffff" data-original="#000000"/></g></svg>
+            </div>
+            <div class="menu">
+                <ul>
+                    <img class="close-icon" src="{% static '/img/close.svg' %}" alt="">
+                    <li class="menu-item"><a href="{% url 'home' %}">ANASAYFA</a></li>
+                    <li class="menu-item"><a href="{% url 'products' %}">ÜRÜNLER</a></li>
+                    <li class="menu-item"><a href="{% url 'hakkimizda' %}">HAKKIMIZDA</a></li>
+                    <li class="menu-item"><a href="{% url 'gallery' %}">Gallery</a></li>
+                    <li class="menu-item"><a href="{% url 'iletisim' %}">İLETİŞİM</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+        <footer class="footer">
+            <div class="map">
+                <iframe class="map-inner" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2441.3154394383346!2d28.97469295384473!3d41.026236725093284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab9e7a7777c43%3A0x4c76cf3dcc8b330b!2sGalata%20Tower!5e0!3m2!1sen!2str!4v1653167116380!5m2!1sen!2str"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="address">
+                <h4>Address</h4>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga veniam at recusandae, fugit commodi doloribus asperiores facilis obcaecati ipsam culpa suscipit atque? Et labore, dolore ipsa eius voluptate voluptatibus odit.</p>
+                <h4> Telefon </h4>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae aspernatur officiis architecto, voluptate sed sequi aperiam non deserunt sint distinctio maxime debitis mollitia? Nisi rem, libero asperiores cumque eius maiores!</p>
+            </div>
+            <div class="links">
+                <h4>Links</h4>
+                {% for product in products.all %}
+                    <a href="{% url 'product' product.id %}"> &#8608; {{ product.title }}</a>
+                {% endfor %}
+            </div>
+        </footer>
+            <div class="rounded-social-buttons">
+                <a class="social-button facebook" href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a class="social-button twitter" href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a class="social-button linkedin" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a class="social-button youtube" href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a class="social-button instagram" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        <div class="whatsapp">
+            <a href="https://wa.me/905385831824?">
+                <img src="{% static 'img/whatsapp.png' %}" alt="whatapp tente">
+            </a>
+        </div>
+        <div class="call">
+            <a href="tel:00905385831824">
+                <img src="{% static 'img/call.png' %}" alt="hemen ara">
+            </a>
+            <h5> Hemen Ara </h5>
+        </div>
+    </main>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+    <script src="{% static 'code.js' %}"></script>
+    <script src="{% static 'node_modules/swiper/swiper-bundle.js' %}"></script>
+    <script src="{% static 'swiper.js' %}"></script>
+</body>
+</html>

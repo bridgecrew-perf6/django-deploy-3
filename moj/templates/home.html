@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="hero">
+    {% load static %}
+    <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          {% for hero in hero.all %}
+            <div class="swiper-slide">
+                <img class="img-hero" src="{{ hero.img.url }}" alt="{{hero.alt_text}}">
+                <h3 class="img-text"> {{ hero.title }} </h3>
+            </div>
+          {% endfor %}
+         
+        </div>
+      </div>
+</div>
+<section class="section-1">
+    <div class="section-1-left">
+        <div class="youtube-v">
+            <iframe class="iframe" src="https://www.youtube.com/embed/wsHCJk6O9TA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="section-1-right">
+        <div class="section-1-container">
+            <h2> Context </h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit voluptas facere reprehenderit et dicta libero ratione cupiditate at. Molestias, blanditiis voluptatibus illum reiciendis autem ducimus quasi? Quas id inventore expedita.</p>
+        </div>
+    </div>
+</section>
+<section class="section-2">
+    <h3> ÜRÜNLER </h3>
+    <div class="gallery">
+        
+        {% for product in products.all %}
+        <div class="gallery-container">
+            <a href="{% url 'product' product.id %}">
+                <img src="{{ product.main_img.url }}" alt="{{ product.alt_text }}" class="g-img">
+                <h3> {{product.title}} </h3>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

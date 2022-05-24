@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="section-2">
+    {% load static %}
+    <div class="gallery">
+        {% for product in products.all %}
+        <div class="gallery-container">
+            <a href="{% url 'product' product.id %}">
+                <img src="{{ product.main_img.url }}" alt="{{ product.alt_text }}" class="g-img">
+                <h3> {{product.title}} </h3>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

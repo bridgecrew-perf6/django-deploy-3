@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <div class="g-container">
+        {% load static %}
+        {% for photo in gallery.all %}
+            <div class="g-c-box" id="zoom">
+                <img id="photo" style="height:100%; width: 100% ;" src="{{ photo.img.url }}" alt="{{ photo.alt_text }}">
+            </div>
+        {% endfor %}     
+    </div>
+    
+{% endblock %}
